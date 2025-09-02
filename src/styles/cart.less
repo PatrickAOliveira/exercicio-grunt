@@ -1,0 +1,90 @@
+@import "var.less";
+@import "maps.less";
+
+.cart {
+    margin-bottom: 20px;
+
+    &--area {
+        padding: 20px;
+
+        @media @breakpointMobile {
+            width: 100vw;
+        }
+    }
+
+    &--item {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+
+        img {
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        &-nome {
+            flex: 1;
+        }
+
+        &--qtarea {
+            display: inline-flex;
+            background-color: #colors[backgroundColor];
+            border-radius: 10px;
+            height: 30px;
+
+            button {
+                border: 0;
+                background-color: transparent;
+                font-size: 17px;
+                outline: 0;
+                cursor: pointer;
+                padding: 0px 10px;
+                color: #333;
+            }
+        }
+
+        &--qt {
+            line-height: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 0px 5px;
+            color: #000;
+        }
+    }
+
+    &--totalitem {
+        padding: 15px 0;
+        border-top: 1px solid #79b9dd;
+        color: #315970;
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+
+        span:first-child {
+            font-weight: bold;
+        }
+
+        &.big {
+            font-size: 20px;
+            color: #000;
+            font-weight: bold;
+        }
+    }
+
+    &--finalizar {
+        padding: 20px 30px;
+        border-radius: 20px;
+        background-color: #colors[btnColorAdd];
+        color: #colors[txtColor];
+        cursor: pointer;
+        text-align: center;
+        margin-top: 20px;
+        border: 2px solid #63f77c;
+        transition: all ease .2s;
+
+        &:hover {
+            background-color: #35af4a;
+        }
+    }
+}

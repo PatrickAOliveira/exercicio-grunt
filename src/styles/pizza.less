@@ -1,0 +1,301 @@
+@import "var.less";
+@import "maps.less";
+
+.pizza-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media @breakpointMobile {
+        display: block;
+    }
+
+    @media @breakpointTablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.pizza-item {
+    text-align: center;
+    max-width: 250px;
+    font-family: @fonteSecundaria;
+    margin: 0 auto 50px auto;
+
+    @media @breakpointMobile {
+        max-width: 100%;
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover {
+            .pizza-item--add {
+                background-color: #colors[pizzaItemColorHover];
+            }
+        }
+    }
+
+    &--img {
+        width: 200px;
+        height: 200px;
+        background-color: #EEE;
+        border-radius: 100px;
+        box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &--add {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 25px;
+        background-color: #colors[pizzaItemColor];
+        text-align: center;
+        color: #colors[txtColor];
+        font-size: 22px;
+        cursor: pointer;
+        margin-top: -25px;
+        transition: all ease .2s;
+    }
+
+    &--price {
+        font-size: 15px;
+        color: #333;
+        margin-top: 5px;
+    }
+
+    &--name {
+        font-size: 20px;
+        font-weight: bold;
+        color: #000;
+        margin-top: 5px;
+    }
+
+    &--desc {
+        font-size: 13px;
+        color: #555;
+        margin-top: 10px;
+    }
+}
+
+.pizzaWindowArea {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #colors[windowColor];
+    display: none;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+
+    @media @breakpointMobile {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.pizzaWindowBody {
+    width: 900px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #999;
+    display: flex;
+    margin: 20px 0px;
+
+    @media @breakpointMobile {
+        width: 100vw;
+        display: block;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+    }
+}
+
+.pizzaBig {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        height: 400px;
+        width: auto;
+
+        @media @breakpointMobile {
+            width: 75%;
+            height: auto;
+        }
+    }
+
+    &--back {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #000;
+    }
+}
+
+.pizzaInfo {
+    flex: 1;
+    font-family: @fonteSecundaria;
+    padding-bottom: 50px;
+
+    h1 {
+        margin-top: 50px;
+
+        @media @breakpointMobile {
+            margin-top: 20px;
+        }
+    }
+
+    &--desc {
+        font-size: 15px;
+        color: #999;
+        margin-top: 10px;
+        font-family: @fontePrincipal;
+    }
+
+    &--sector {
+        color: #CCC;
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    &--sizes {
+        display: inline-flex;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    &--size {
+        padding: 10px 15px;
+        color: #000;
+        background-color: #EEE;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #CCC;
+        }
+
+        &.selected {
+            background-color: #colors[headerColor];
+            color: #FFF;
+
+            span {
+                color: #D6D6D6;
+            }
+        }
+
+        span {
+            font-size: 12px;
+            color: #999;
+            font-weight: normal;
+        }
+    }
+
+    &--price {
+        display: flex;
+        align-items: center;
+    }
+
+    &--actualPrice {
+        font-size: 28px;
+        margin-right: 30px;
+    }
+
+    &--qtarea {
+        display: inline-flex;
+        background-color: #EEE;
+        border-radius: 10px;
+        height: 30px;
+
+        button {
+            border: 0;
+            background-color: transparent;
+            font-size: 17px;
+            outline: 0;
+            cursor: pointer;
+            padding: 0px 10px;
+            color: #333;
+
+            @media @breakpointMobile {
+                font-size: 25px;
+                padding: 0px 20px;
+            }
+        }
+
+        @media @breakpointMobile {
+            height: 60px;
+        }
+    }
+
+    &--qt {
+        line-height: 30px;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 0px 5px;
+        color: #000;
+
+        @media @breakpointMobile {
+            font-size: 20px;
+            line-height: 60px;
+        }
+    }
+
+    &--addButton {
+        margin-top: 30px;
+        padding: 20px 30px;
+        border-radius: 20px;
+        background-color: #colors[btnColorAdd];
+        color: #FFF;
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 30px;
+
+        &:hover {
+            background-color: #colors[btnColorAddHover];
+        }
+
+        @media @breakpointMobile {
+            font-size: 20px;
+            display: block;
+            text-align: center;
+            margin: 30px auto;
+        }
+    }
+
+    &--cancelButton {
+        display: inline-block;
+        cursor: pointer;
+
+        @media @breakpointMobile {
+            display: none;
+        }
+    }
+
+    &--cancelMobileButton {
+        display: none;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        margin-bottom: 30px;
+
+        @media @breakpointMobile {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,99 @@
+@import "./var.less";
+@import "./maps.less";
+@import "./reset.less";
+@import "./pizza.less";
+@import "./cart.less";
+
+body {
+    background: #colors[backgroundColor];
+    font-family: @fontePrincipal;
+    font-size: 15px;
+    display: flex;
+    min-height: 100vh;
+
+    @media @breakpointMobile {
+        flex-direction: column;
+    }
+}
+
+.models {
+    display: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #colors[headerColor];
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media @breakpointMobile {
+        display: flex;
+    }
+}
+
+.menu-openner {
+    margin-right: 15px;
+    font-size: 26px;
+    background-color: #colors[menuColor];
+    padding: 5px 20px;
+    border-radius: 5px;
+
+    span {
+        margin-right: 10px;
+    }
+}
+
+.menu-closer {
+    width: 32px;
+    height: 32px;
+    display: none;
+    font-size: 30px;
+
+    @media @breakpointMobile {
+        display: block;
+    }
+}
+
+aside {
+    background-color: #colors[asideColor];
+    width: 0vw;
+    font-family: @fonteSecundaria;
+    transition: all ease 0.2s;
+    overflow-x: hidden;
+
+    &.show {
+        width: 30vw;
+
+        @media @breakpointMobile {
+            width: auto;
+        }
+    }
+
+    @media @breakpointMobile {
+        width: auto;
+        position: fixed;
+        left: 100vw;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transition: all ease .2s;
+    }
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+
+    @media @breakpointMobile {
+        padding-top: 60px;
+    }
+}
+
+h1 {
+    font-family: @fonteSecundaria;
+}

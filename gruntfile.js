@@ -142,5 +142,6 @@ module.exports = function (grunt) {
 		"replace:dist",
 		"clean:build",
 		"uglify:my_target",
+		"imagemin:dynamic",
 	]);
 };
